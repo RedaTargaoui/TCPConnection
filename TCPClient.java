@@ -1,6 +1,6 @@
 /**
- * Represents the client TCP connexion part
- * Reda TARGAOUI & Zakaria JANNANI & Salmane CHAHIDI
+ * Represents the client side in TCP connection
+ * by Reda TARGAOUI
  * 16/05/2023
  */
 package TCP;
@@ -11,10 +11,8 @@ import java.net.Socket;
 
 public class TCPClient {
     // Attributes :
-    private Socket socket;// To connect with server using TCP
+    private Socket socket;
     private PrintWriter out;
-
-    // Constructor :
 
     /**
      * Initialise the socket
@@ -33,14 +31,14 @@ public class TCPClient {
 
     /**
      * Send data to the server
-     * @param EmployeeID the employee's ID
+     * @param message the message to send
      */
-    public void sendData(int EmployeeID) {
-        out.println(EmployeeID);// Send Employee's ID
+    public void sendData(String message) {
+        out.println(message);// Send message
     }
 
     /**
-     * To close th socket
+     * To close the socket
      */
     public void closeSocket() {
         try {
