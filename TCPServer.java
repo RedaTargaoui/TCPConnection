@@ -1,11 +1,9 @@
 /**
- * Represents the server TCP connexion part
- * Reda TARGAOUI & Zakaria JANNANI & Salmane CHAHIDI
+ * Represents the server side in TCP connection
+ * by Reda TARGAOUI
  * 16/05/2023
  */
 package TCP;
-
-import Controller.PointageController;
 
 import java.io.BufferedReader;
 import java.io.IOException;
@@ -16,8 +14,6 @@ import java.net.Socket;
 public class TCPServer {
     // Attributes :
     private ServerSocket serverSocket;// server socket
-
-    // Constructor :
 
     /**
      * Initialise the serverSocket
@@ -41,20 +37,14 @@ public class TCPServer {
             // To read the received data :
             BufferedReader in = new BufferedReader(new InputStreamReader(clientSocket.getInputStream()));
 
-            // Creation of Pointage Controller to store CheckIn&CheckOut data :
-            PointageController pointageController = new PointageController();
-
-            String response;
+            String response;// To get Client's response
             while ( (response = in.readLine()) != null ) {
                 // If we get exit response from client, we end the loop and close socket :
                 if ( response.equals("exit") ) {
                     break;
                 }
                 
-                // Add the employeeID Check :
-                pointageController.addPointage(Integer.parseInt(response));
-                // Store data :
-                pointageController.pushPointageData();
+                System.out.println("This server, I received : " + response);
             }
 
             clientSocket.close();
