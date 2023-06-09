@@ -3,7 +3,6 @@
  * by Reda TARGAOUI
  * 16/05/2023
  */
-package TCP;
 
 import java.io.IOException;
 import java.io.PrintWriter;
